@@ -4,8 +4,8 @@ import './style.css';
 class Square extends React.Component {
   render() {
     return (
-      <button className="square">
-        {this.state.value}
+      <button className="square" onClick={this.props.onClick}>
+        {this.props.value}
       </button>
     );
   }
@@ -18,8 +18,16 @@ class Board extends React.Component {
       xIsNext : true,
     }
   }
+  handleClick(i){
+    this.state.squares[i] = this.state.xIsNext ? "X" : "O"
+    this.setState( {
+      squares : this.state.squares,
+      xIsNext : !this.state.xIsNext,
+    }
+    );
+  }
   renderSquare(i) {
-    return <Square />;
+    return <Square value={this.state.squares[i]}  onClick={() => this.handleClick(i)}/>;
   }
   render() {
     const status = 'Next Player is X';
