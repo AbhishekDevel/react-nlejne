@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './style.css';
 class Board extends React.Component{
+  renderSquare(i){
+    return(
+      <button>{i}</button>
+    )
+  }
   render(){
     const status = "Next Player is X"
     return (
