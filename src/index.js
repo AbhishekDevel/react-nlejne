@@ -27,24 +27,28 @@ class Board extends React.Component {
   }
   handleRandom() {
     let ran = Math.floor(Math.random()*9)
-    if (this.state.whichSquareToShow[ran] === true) {
-      this.handleRandom();
-    } else {
-      this.state.whichSquareToShow[ran] = true
-      return
+    if(this.state.whichSquareToShow.some((e) => e === 'hidden')){
+      if (this.state.whichSquareToShow[ran] === true) {
+        this.handleRandom();
+      } else {
+        this.state.whichSquareToShow[ran] = true
+        return
     }
+  }else{
+    return;
+  }
   }
   handleClick(i) {
     const winner = handleWinner(this.state.squares);
     if (winner || this.state.squares[i]) {
       return;
     }
-    this.handleRandom()
     this.state.squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: this.state.squares,
       xIsNext: !this.state.xIsNext,
     });
+    this.handleRandom()
   }
   renderSquare(i) {
     return (
