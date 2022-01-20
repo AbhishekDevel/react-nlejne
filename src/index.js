@@ -4,7 +4,11 @@ import './style.css';
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={this.props.onClick}>
+      <button
+        className="square"
+        style={{ visibility: this.props.style }}
+        onClick={this.props.onClick}
+      >
         {this.props.value}
       </button>
     );
@@ -16,7 +20,7 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
       xIsNext: true,
-      whichSquareToShow: Array(9).fill(null),
+      whichSquareToShow: Array(9).fill('hidden'),
     };
   }
   handleClick(i) {
@@ -33,6 +37,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return (
       <Square
+        style={this.state.whichSquareToShow[i]}
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
       />
