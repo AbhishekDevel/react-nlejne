@@ -22,14 +22,24 @@ class Board extends React.Component {
       xIsNext: true,
       whichSquareToShow: Array(9).fill('hidden'),
     };
-    const start = Math.floor(Math.random() * 10);
+    const start = Math.floor(Math.random() * 9);
     this.state.whichSquareToShow[start] = true;
+  }
+  handleRandom() {
+    let ran = Math.floor(Math.random()*9)
+    if (this.state.whichSquareToShow[ran] === true) {
+      this.handleRandom();
+    } else {
+      this.state.whichSquareToShow[ran] = true
+      return
+    }
   }
   handleClick(i) {
     const winner = handleWinner(this.state.squares);
     if (winner || this.state.squares[i]) {
       return;
     }
+    this.handleRandom()
     this.state.squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: this.state.squares,
