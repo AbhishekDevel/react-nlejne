@@ -16,7 +16,7 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
       xIsNext: true,
-      whichSquareToShow : Array(9).fill(null),
+      whichSquareToShow: Array(9).fill(null),
     };
   }
   handleClick(i) {
@@ -39,19 +39,29 @@ class Board extends React.Component {
     );
   }
   render() {
-    const winner = handleWinner(this.state.squares)
-    const status= winner ? 'Winner is ' + winner : this.state.xIsNext ? 'Next Player is X' : 'Next Player is O';
+    const winner = handleWinner(this.state.squares);
+    const status = winner
+      ? 'Winner is ' + winner
+      : this.state.xIsNext
+      ? 'Next Player is X'
+      : 'Next Player is O';
     return (
       <div>
         <div className="status">{status}</div>
         <div className="board-row">
-          {this.state.whichSquareToShow[0] ? this.renderSquare(0) : " "}
-          {this.state.whichSquareToShow[1] ? this.renderSquare(1) : " "}
-          {this.state.whichSquareToShow[2] ? this.renderSquare(2) : " "}
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
         </div>
-        <div className="board-row">{this.state.whichSquareToShow[3] ? this.renderSquare(3) : " "}{this.state.whichSquareToShow[4] ? this.renderSquare(4) : " "}{this.state.whichSquareToShow[5] ? this.renderSquare(5) : " "}
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
         </div>
-        <div className="board-row">{this.state.whichSquareToShow[6] ? this.renderSquare(6) : " "}{this.state.whichSquareToShow[7] ? this.renderSquare(7) : " "}{this.state.whichSquareToShow[8] ? this.renderSquare(8) : " "}
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
         </div>
       </div>
     );
@@ -82,9 +92,9 @@ function handleWinner(props) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  for(let i=0; i < lines.length; i++) {
-    const [a,b,c] = lines[i];
-    if(props[a] === props[b] && props[b] === props[c]) {
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (props[a] === props[b] && props[b] === props[c]) {
       return props[a];
     }
   }
