@@ -22,6 +22,8 @@ class Board extends React.Component {
       xIsNext: true,
       whichSquareToShow: Array(9).fill('hidden'),
     };
+    const start = Math.floor(Math.random() * 10);
+    this.state.whichSquareToShow[start] = true;
   }
   handleClick(i) {
     const winner = handleWinner(this.state.squares);
