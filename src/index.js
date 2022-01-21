@@ -27,11 +27,13 @@ class Board extends React.Component {
   }
   handleRandom() {
     let ran = Math.floor(Math.random()*9)
+    let ran2 = Math.floor(Math.random()*9)
     if(this.state.whichSquareToShow.some((e) => e === 'hidden')){
       if (this.state.whichSquareToShow[ran] === true) {
         this.handleRandom();
       } else {
         this.state.whichSquareToShow[ran] = true
+        this.state.whichSquareToShow[ran2] = true
         return
     }
   }else{
