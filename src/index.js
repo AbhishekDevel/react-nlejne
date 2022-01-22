@@ -6,7 +6,7 @@ if ( width < 768){
   import('./style.css');
 } else {
   console.log(width);
-  import('.style2.css');
+  import('./style2.css');
 }
 class Square extends React.Component {
   render() {
