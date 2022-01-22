@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import './style.css';
+let width = screen.width
+if ( width < 768){
+  console.log(width);
+  import('./style.css');
+} else {
+  console.log(width);
+  import('.style2.css');
+}
 class Square extends React.Component {
   render() {
     return (
