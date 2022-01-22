@@ -106,6 +106,7 @@ class Board extends React.Component {
             {this.renderSquare(7)}
             {this.renderSquare(8)}
           </div>
+          <br/>
           <button onClick={() => {
             window.location.reload()
           }}>Click to reload</button>
