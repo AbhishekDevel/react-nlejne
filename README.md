@@ -3,4 +3,4 @@
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-nlejne)
 [Play it here](https://react-nlejne.stackblitz.io)
 
-![tic tac toe](img/Img1.jpeg)
+![tic tac toe](https://stackblitz.com/files/react-nlejne/github/AbhishekDevel/react-nlejne/master/img/IMG_20220122_130146.jpg)
